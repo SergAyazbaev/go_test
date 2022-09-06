@@ -41,14 +41,9 @@ import (
 // /
 func main() {
 
-	// e := db.Connect()
-	// if e != nil {
-	// 	fmt.Println(e.Error())
-	// 	return
-	// }
-
 	handleFunc()
 }
+
 
 func handleFunc() {
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("./css"))))
@@ -120,24 +115,3 @@ func save_article(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(" Saved into DB")
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
-
-// package main
-
-// import (
-// 	"fmt"
-// 	"go_test/db"
-// )
-
-// func main() {
-// 	fmt.Println("GGG111")
-
-// 	e := db.Connect()
-// 	if e != nil {
-// 		fmt.Println(e.Error())
-// 		return
-// 	}
-
-
-// 	//  fmt.Println(fmt.Sprintf("Вернул строку %s", db.ReadFromBase, "UTF-8"))
-
-// }
